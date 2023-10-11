@@ -24,7 +24,7 @@ const SideMenu = (props) => {
           <li>Nostrum.</li>
           <li>Tenetur.</li>
           <li>Eaque?</li>
-          <li>Voluptas?</li>
+          <li>Voluptas? </li>
           <li>Ipsam.</li>
           <li>Consequatur!</li>
           <li>Ab.</li>
