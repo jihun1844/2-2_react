@@ -1,55 +1,74 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "./App.css";
 
-const SideMenu = (props) => {
-  console.log(props.showMenu);
+
+//1. with JSX
+// const element1 = (
+//   <>
+//     <h1 className='App'>
+//       영진 컴정 일본 IT JI-A (AI SW)반
+//     </h1>
+//   </>
+// );
+// //2. Non JSX
+// const element2 = React.createElement(
+//   'h1',
+//   { className: 'App', name:'김영진' },
+//   '영진 컴정 일본 IT JI-A (AI SW)반 화이팅','ㅁ'
+// );
+
+// console.log(typeof (element1));
+// console.log(typeof (element2));
+// console.log(element1.props.className);
+// console.log(element2.props.className);
+// console.log(element1.children);
+// console.log(element2.children);
+
+// ReactDOM.createRoot(document.querySelector('#root')).render(
+//   <>
+//     {element1}
+//     {element2}
+//   </>
+// );
+
+
+// [1] Function style - non JSX
+
+const Greeting = (props) => {
+  return (
+    React.createElement('div', { id: 'Hello' }, '안녕', 'bey', props.name, 'gd')
+  );
+};
+
+// [2] class 
+class Greeting2 extends React.Component{
+  render(){
+     // 반드시 render 함수 구현이 되어 있어야 함
+     const ch = ['안녕','영진','컴정',this.props.name,'님'];
+     return (
+        React.createElement('div',{id:'hello'},[...ch])
+     );
+  }
+}
+
+
+const Greeting3 = (props) => {
   return (
     <>
-      <div style={{
-        border: '1px solid red',
-        width: '200px',
-        height: '94vh',  //viewport height, vw : viewport width
-        padding: '10px',
-        textAlign: props.direction,
-        textTransform: 'uppercase',
-
-      }}>
-        {props.direction}
-      
-        <ul style={{listStyle:'none', paddingLeft:'0px', lineHeight:'2.6rem'}}>
-          <li>Lorem.</li>
-          <li>Quae.</li>
-          <li>Magni?</li>
-          <li>Nostrum.</li>
-          <li>Tenetur.</li>
-          <li>Eaque?</li>
-          <li>Voluptas?</li>
-          <li>Ipsam.</li>
-          <li>Consequatur!</li>
-          <li>Ab.</li>
-          <li>Commodi.</li>
-          <li>Nemo?</li>
-          <li>Debitis.</li>
-          <li>Expedita?</li>
-          <li>Nam?</li>
-          </ul>
-        
-        </div>
+      <div id='Hello3'>
+        `안녕 ${props.name}님`
+      </div>
     </>
-  );
+  )
 }
-
-const App = (props) => {
-  const { showMenu } = props;
-  return (
-    <showMenu/> && <SideMenu direction='left'/>
-  );
-}
-
 
 ReactDOM.createRoot(document.querySelector('#root')).render(
   <>
-  <App showMenu={true} />
+    <Greeting name='김영진' />
+    <Greeting2 name='이영진' />
+    <Greeting3 name='박영진'/>
   </>
+
 );
