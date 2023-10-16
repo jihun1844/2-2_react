@@ -1,25 +1,15 @@
-
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
-
+import React, { useState } from 'react';
 
 
 const Info = (props) => {
   const [name, setName] = useState('');
   const [pwd, setPwd] = useState('');
+  //useState는 primitive type만 사용하여야 하나?
+  //array, object형 사용가능한가? Yes
+  //주의사항
+  //array, object의 사용시 setter함수의 사용 주의
 
-  useEffect(
-    () => {
-      console.log("렌더링 완료됨");
-      console.log({ name, pwd });
-      return (
-        () => {
-          console.log('뒷처리 한다')
-
-        }
-      )
-    }
-  )
+  
 
 
   const changeName = (e) => {
@@ -61,20 +51,4 @@ const Info = (props) => {
   )
 };
 
-const App = () => {
-  const [visivle, setVisivle] = useState(false);
-  return (
-    <>
-      <div onClick={() => {
-        setVisivle(!visivle);
-      }}>
-        <button>
-          {visivle?'숨기기':'숨기기'}
-        </button>
-      </div>
-    </>
-  )
-}
-
 export default Info;
-
