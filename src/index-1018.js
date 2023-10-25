@@ -48,7 +48,6 @@ const Info  = (props)=>{
 
   </>);
 };
-
 const App = ()=>{
   const [visible,setVisible] = useState(false);
   return (
